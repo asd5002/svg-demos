@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			path{
+				fill: none;
+				stroke: white;
+				stroke-width: 10;
+				stroke-dasharray: 585;
+				stroke-dashoffset: 585;
+				animation: line1 2.7s linear both;
+			}
+			@keyframes line1{
+				to{stroke-dashoffset: 0;}
+			}
+			body{
+				background-color: gray;
+			}
+			svg{
+				display: block;
+				/*width: 100px;
+				height: 100px;*/
+			}
+		</style>
+	</head>
+	<body>
+		<svg width="500" height="500" viewbox="0 0 500 500">
+			<path d="M20 400 L200 250 300 250 450 50"></path>
+			<image xlink:href="img/arrow-left.png" x="-25" y="-25" height="50" width="50">
+			    <animateMotion path="M20 400 L200 250 300 250 450 50" fill="freeze" begin="0s" dur="2.7s" rotate="auto" repeatCount="5"/>
+			</image>
+		</svg>
+		<script type="text/javascript">
+			var path = document.getElementsByTagName("path")[0];
+			console.log(path.getTotalLength())
+		</script>
+	</body>
+</html>

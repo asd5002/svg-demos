@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			svg{
+				/*animation: rot linear infinite 3s;*/
+				transform: rotate(90deg);
+			}
+			@keyframes rot{
+				to{transform: rotate(360deg);}
+			}
+			path{
+				animation: line1 linear infinite 3s;
+			}
+			@keyframes line1{
+				0%{
+					stroke-dashoffset:251;
+				}
+				100%{
+					stroke-dashoffset:0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<svg width="200" height="200" viewbox="0 0 50 50">
+			<path d="M5 25 C5 13.96169951012,13.96169951012 5,25 5 S45 13.96169951012,45 25 S36.03830048988 45,25 45 S5 36.03830048988,5 25"></path>
+			<path d="M25 25 L25 25"></path>
+			<g id="point-line">
+				
+			</g>
+		</svg>
+	</body>
+	<script type="text/javascript">
+		var c = 0.551915024494;
+		$("svg").html('<path d="M5 25 C5 13.96169951012,13.96169951012 5,25 5 S45 13.96169951012,45 25 S36.03830048988 45,25 45 S5 36.03830048988,5 25"></path>');
+		var lineLength = $("path")[0].getTotalLength();
+		console.log(lineLength);
+//		console.log(25+c*20)
+//		var svg = document.getElementsByTagName("svg")[0];
+//		var path = svg.paper.path("");
+		$("path").css({
+			"stroke":"red",
+			"stroke-width":"4",
+			"fill":"none",
+			"stroke-dasharray":lineLength,
+			"stroke-dashoffset":105
+			});
+			
+		
+	</script>
+</html>

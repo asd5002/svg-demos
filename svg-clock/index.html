@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			path{
+				stroke-linecap: round;
+				stroke: #e43669;
+				stroke-width: 2;
+				fill: none;
+				
+			}
+			circle{
+				fill: #e43669;
+			}
+			line{
+				stroke-linecap: round;
+				stroke-width: 3;
+				stroke: #e43669;
+			}
+		</style>
+		<script src="js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<svg width="200" height="200" viewbox="0 0 50 50">
+			<path d="M5 25 C5 13.96169951012,13.96169951012 5,25 5 S45 13.96169951012,45 25 S36.03830048988 45,25 45 S5 36.03830048988,5 25"></path>
+			<circle cx="25" cy="25" r="3"></circle>
+			<g id="point-line">
+				
+			</g>
+		</svg>
+		<script type="text/javascript">
+		function pointLine(){
+			var now = new Date();
+			var min = now.getMinutes();
+			var hour = now.getHours();
+			var dHour = hour/12+(min/60/12);
+			var dmin = min/60;
+			$("#point-line").html("<line x1='"+(25+(Math.sin((dmin)*Math.PI*2)*6))+"' y1='"+(25-(Math.cos((dmin)*Math.PI*2)*6))+"' X2='"+(25+(Math.sin((dmin)*Math.PI*2)*15))+"' Y2='"+(25-(Math.cos((dmin)*Math.PI*2)*15))+"'></line>"+
+			"<line x1='"+(25+(Math.sin((dHour)*Math.PI*2)*6))+"' y1='"+(25-(Math.cos((dHour)*Math.PI*2)*6))+"' X2='"+(25+(Math.sin((dHour)*Math.PI*2)*12))+"' Y2='"+(25-(Math.cos((dHour)*Math.PI*2)*12))+"'></line>")
+		}
+		pointLine();
+		setInterval(function(){
+			pointLine();
+		},1000)
+		</script>
+	</body>
+</html>

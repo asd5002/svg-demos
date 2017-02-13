@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			input[type=checkbox]{
+				display: none;
+			}
+			input[type=checkbox]:checked ~ svg path{
+				/*animation: line1 0.5s 1 both;*/
+				stroke-dashoffset:0
+			}
+			svg{
+				display: none;
+				float: left;
+				margin-left: 20px;
+			}
+			label{
+				overflow: hidden;
+				line-height: 40px;
+				display: block;
+				position: relative;
+				float: left;
+			}
+			label span{
+				display: block;
+				float: left;
+				margin-left: 4px;
+				margin-top: 13px;
+				background-color: #ccc;
+				border: 1px solid gray;
+				width: 25px;
+				height: 25px;
+			}
+			label p{
+				float: left;
+				/*margin-left: 10px;*/
+			}
+			
+		</style>
+	</head>
+	<body>
+		<label for="checkbox1">
+			<input type="checkbox" name="checkbox1" id="checkbox1" value="" />
+			<svg width="40" height="40" viewbox="15 -15 72 72" id="icon1">
+				<rect x="20" y="0" width="48.75" height="48.75" rx="10" ry="10" style="fill:#ccc" stroke-width:"5" stroke:"#ccc"></rect>
+				<path d="M17 27 L40 50 L85 5"></path>
+			</svg>
+			<!--<svg width="40" height="40" viewbox="0 0 60 40" id="icon1">
+				<g id="checkshow">
+					<rect x="10" y="0" width="40" height="40" rx="10" ry="10" style="fill:#ccc" stroke-width:"5" stroke:"#ccc"></rect>
+					<path d="M21,2 C13.4580219,4.16027394 1.62349378,18.3117469 3,19 C9.03653312,22.0182666 25.2482171,10.3758914 30,8 C32.9363621,6.53181896 41.321398,1.67860195 39,4 C36.1186011,6.8813989 3.11316157,27.1131616 5,29 C10.3223659,34.3223659 30.6434647,19.7426141 35,18 C41.2281047,15.5087581 46.3445303,13.6554697 46,14 C42.8258073,17.1741927 36.9154967,19.650702 33,22 C30.3136243,23.6118254 17,31.162498 17,34 C17,40.4724865 54,12.4064021 54,17 C54,23.7416728 34,27.2286213 34,37" id="Path-1" stroke-width="4" fill="none" stroke="orange" stroke-dasharray="270" stroke-dashoffset="-270" ></path>
+				</g>
+			</svg>-->
+			<p>点击选中</p>
+		</label>
+		
+		<label for="checkbox2">
+			<input type="checkbox" name="checkbox2" id="checkbox2" value="" />
+			<svg width="40" height="40" viewbox="0 0 60 40" id="icon2">
+				<!--<use xlink:href="#checkshow"></use>-->
+				<g id="checkshow1">
+					<rect x="10" y="0" width="40" height="40" rx="10" ry="10" style="fill:#ccc" stroke-width:"5" stroke:"#ccc"></rect>
+					<path d="M21,2 C13.4580219,4.16027394 1.62349378,18.3117469 3,19 C9.03653312,22.0182666 25.2482171,10.3758914 30,8 C32.9363621,6.53181896 41.321398,1.67860195 39,4 C36.1186011,6.8813989 3.11316157,27.1131616 5,29 C10.3223659,34.3223659 30.6434647,19.7426141 35,18 C41.2281047,15.5087581 46.3445303,13.6554697 46,14 C42.8258073,17.1741927 36.9154967,19.650702 33,22 C30.3136243,23.6118254 17,31.162498 17,34 C17,40.4724865 54,12.4064021 54,17 C54,23.7416728 34,27.2286213 34,37" id="Path-1" stroke-width="4" fill="none" stroke="orange" stroke-dasharray="270" stroke-dashoffset="-270" ></path>
+				</g>
+			</svg>
+			<p>点击选中</p>
+		</label>
+		<label for="checkbox3">
+			<input type="checkbox" name="checkbox3" id="checkbox3" value="" />
+			<svg width="400" height="66" viewbox="0 18 180 30" id="icon3">
+				<!--<use xlink:href="#checkshow"></use>-->
+				<g id="checkshow3">
+					<path d="M90 20 C10 24, 10 40, 90 40 S170 10,80 25" stroke="#000000" fill="none" style="stroke-width: 2px;"></path>
+				</g>
+			</svg>
+			<p style="position: relative;left: -224px;top: 8px;">点击选中</p>
+		</label>
+	</body>
+	<script type="text/javascript">
+		var pathLength =0;
+		for(var i=0;i<$("path").length;i++){
+			var pathLength = $("path").eq(i)[0].getTotalLength();
+			$("path").eq(i).attr({
+				"stroke-width":"5",
+				"fill":"none",
+				"stroke":"red",
+				"stroke-dasharray":pathLength,
+				"stroke-dashoffset":pathLength
+			})
+		}
+			
+		$("svg path").css({"transition": "all 0.5s"});	
+		$("svg").css("display","block");
+	</script>
+</html>
